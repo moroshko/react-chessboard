@@ -29,6 +29,9 @@ module.exports = {
       test: /\.less$/,
       loader: ExtractTextPlugin.extract('style', 'css!less'),
       exclude: /node_modules/
+    }, {
+      test: /\.svg$/,
+      loader: 'url?limit=10000&mimetype=image/svg+xml!svgo'
     }]
   },
 

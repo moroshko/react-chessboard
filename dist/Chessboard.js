@@ -18,6 +18,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _rawPiecesWPSvg = require('!!raw!./pieces/wP.svg');
+
+var _rawPiecesWPSvg2 = _interopRequireDefault(_rawPiecesWPSvg);
+
 var Chessboard = (function (_Component) {
   function Chessboard(props) {
     _classCallCheck(this, Chessboard);
@@ -33,7 +37,7 @@ var Chessboard = (function (_Component) {
       return _react2['default'].createElement(
         'div',
         null,
-        'Chessboard'
+        _react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: _rawPiecesWPSvg2['default'] } })
       );
     }
   }], [{

@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9070fa76e5e36a656ecc"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3eced1b308c8572e530f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -7985,7 +7985,7 @@
 
 	var _srcChessboard2 = _interopRequireDefault(_srcChessboard);
 
-	__webpack_require__(231);
+	__webpack_require__(232);
 
 	var App = (function (_Component) {
 	  function App() {
@@ -8022,7 +8022,7 @@
 
 	(0, _reactA11y2['default'])(_react2['default'], { includeSrcNode: true });
 
-	/* REACT HOT LOADER */ }).call(this); if (true) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(228), foundReactClasses = false; if (makeExportsHot(module, __webpack_require__(117))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "app.js" + ": " + err.message); } }); } } })(); }
+	/* REACT HOT LOADER */ }).call(this); if (true) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(229), foundReactClasses = false; if (makeExportsHot(module, __webpack_require__(117))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "app.js" + ": " + err.message); } }); } } })(); }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)(module)))
 
 /***/ },
@@ -29116,6 +29116,10 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _rawPiecesWPSvg = __webpack_require__(228);
+
+	var _rawPiecesWPSvg2 = _interopRequireDefault(_rawPiecesWPSvg);
+
 	var Chessboard = (function (_Component) {
 	  function Chessboard(props) {
 	    _classCallCheck(this, Chessboard);
@@ -29131,7 +29135,7 @@
 	      return _react2['default'].createElement(
 	        'div',
 	        null,
-	        'Chessboard'
+	        _react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: _rawPiecesWPSvg2['default'] } })
 	      );
 	    }
 	  }], [{
@@ -29154,17 +29158,23 @@
 	exports['default'] = Chessboard;
 	module.exports = exports['default'];
 
-	/* REACT HOT LOADER */ }).call(this); if (true) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(228), foundReactClasses = false; if (makeExportsHot(module, __webpack_require__(117))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Chessboard.js" + ": " + err.message); } }); } } })(); }
+	/* REACT HOT LOADER */ }).call(this); if (true) { (function () { module.hot.dispose(function (data) { data.makeHot = module.makeHot; }); if (module.exports && module.makeHot) { var makeExportsHot = __webpack_require__(229), foundReactClasses = false; if (makeExportsHot(module, __webpack_require__(117))) { foundReactClasses = true; } var shouldAcceptModule = true && foundReactClasses; if (shouldAcceptModule) { module.hot.accept(function (err) { if (err) { console.error("Cannot not apply hot update to " + "Chessboard.js" + ": " + err.message); } }); } } })(); }
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(34)(module)))
 
 /***/ },
 /* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
+	module.exports = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n<!-- Creator: CorelDRAW -->\n<svg\n   xmlns:dc=\"http://purl.org/dc/elements/1.1/\"\n   xmlns:cc=\"http://creativecommons.org/ns#\"\n   xmlns:rdf=\"http://www.w3.org/1999/02/22-rdf-syntax-ns#\"\n   xmlns:svg=\"http://www.w3.org/2000/svg\"\n   xmlns=\"http://www.w3.org/2000/svg\"\n   xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n   xmlns:sodipodi=\"http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd\"\n   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\"\n   xml:space=\"preserve\"\n   width=\"50mm\"\n   height=\"50mm\"\n   shape-rendering=\"geometricPrecision\"\n   text-rendering=\"geometricPrecision\"\n   image-rendering=\"optimizeQuality\"\n   fill-rule=\"evenodd\"\n   clip-rule=\"evenodd\"\n   viewBox=\"0 0 50 50\"\n   id=\"svg2\"\n   sodipodi:version=\"0.32\"\n   inkscape:version=\"0.46\"\n   sodipodi:docname=\"wp.svg\"\n   sodipodi:docbase=\"/home/fkling/2/v0.1.2reduced/PieceThemes/Merida\"\n   inkscape:output_extension=\"org.inkscape.output.svg.inkscape\"\n   sodipodi:modified=\"true\"><metadata\n   id=\"metadata13\"><rdf:RDF><cc:Work\n       rdf:about=\"\"><dc:format>image/svg+xml</dc:format><dc:type\n         rdf:resource=\"http://purl.org/dc/dcmitype/StillImage\" /></cc:Work></rdf:RDF></metadata><defs\n   id=\"defs11\"><inkscape:perspective\n   sodipodi:type=\"inkscape:persp3d\"\n   inkscape:vp_x=\"0 : 88.58268 : 1\"\n   inkscape:vp_y=\"0 : 1000 : 0\"\n   inkscape:vp_z=\"177.16536 : 88.58268 : 1\"\n   inkscape:persp3d-origin=\"88.58268 : 59.05512 : 1\"\n   id=\"perspective14\" /><linearGradient\n   inkscape:collect=\"always\"\n   id=\"linearGradient2165\"><stop\n     style=\"stop-color:#ffffff;stop-opacity:1;\"\n     offset=\"0\"\n     id=\"stop2167\" /><stop\n     style=\"stop-color:#ffffff;stop-opacity:0;\"\n     offset=\"1\"\n     id=\"stop2169\" /></linearGradient><linearGradient\n   inkscape:collect=\"always\"\n   xlink:href=\"#linearGradient2165\"\n   id=\"linearGradient2171\"\n   x1=\"21.130222\"\n   y1=\"37.346436\"\n   x2=\"77.76413\"\n   y2=\"37.469288\"\n   gradientUnits=\"userSpaceOnUse\" />\n  <metadata\n   id=\"CorelCorpID_0Corel-Layer\" />\n  \n  \n <linearGradient\n   inkscape:collect=\"always\"\n   xlink:href=\"#linearGradient2165\"\n   id=\"linearGradient2389\"\n   gradientUnits=\"userSpaceOnUse\"\n   x1=\"21.130222\"\n   y1=\"37.346436\"\n   x2=\"77.76413\"\n   y2=\"37.469288\"\n   gradientTransform=\"matrix(1,0,0,0.9732377,0,1.2430576)\" /></defs><sodipodi:namedview\n   inkscape:window-height=\"730\"\n   inkscape:window-width=\"944\"\n   inkscape:pageshadow=\"2\"\n   inkscape:pageopacity=\"0.0\"\n   guidetolerance=\"10.0\"\n   gridtolerance=\"10.0\"\n   objecttolerance=\"10.0\"\n   borderopacity=\"1.0\"\n   bordercolor=\"#666666\"\n   pagecolor=\"#ffffff\"\n   id=\"base\"\n   inkscape:zoom=\"0.81221425\"\n   inkscape:cx=\"153.106\"\n   inkscape:cy=\"-36.228325\"\n   inkscape:window-x=\"483\"\n   inkscape:window-y=\"289\"\n   inkscape:current-layer=\"svg2\"\n   showgrid=\"true\" />\n <path\n   style=\"fill:#1f1a17\"\n   id=\"path6\"\n   d=\"M 25,46.4479 L 11.6057,46.4479 C 10.9453,44.841085 10.6151,43.160108 10.6151,41.404972 C 10.6151,38.430369 11.4787,35.760583 13.2144,33.38744 C 14.9501,31.022474 17.1853,29.333322 19.9115,28.319792 C 18.7431,27.792395 17.7864,26.993075 17.0498,25.921931 C 16.3132,24.850688 15.9491,23.639396 15.9491,22.288055 C 15.9491,20.598807 16.5249,19.132041 17.6848,17.896028 C 18.8363,16.651842 20.2587,15.934955 21.952,15.745369 C 20.6058,14.764831 19.9369,13.462932 19.9369,11.856116 C 19.9369,10.50468 20.428,9.342826 21.4186,8.3787387 C 22.4007,7.4146485 23.5945,6.93679 25,6.93679 C 26.3885,6.93679 27.5823,7.4146485 28.5729,8.3787387 C 29.5635,9.342826 30.0631,10.50468 30.0631,11.856116 C 30.0631,13.462932 29.3942,14.764831 28.048,15.745369 C 29.7413,15.934955 31.1637,16.651842 32.3152,17.896028 C 33.4751,19.132041 34.0509,20.598807 34.0509,22.288055 C 34.0509,23.639396 33.6783,24.850688 32.9248,25.921931 C 32.1713,26.993075 31.2145,27.792395 30.0631,28.319792 C 32.7893,29.333322 35.0245,31.022474 36.7602,33.38744 C 38.4959,35.760583 39.3595,38.430369 39.3595,41.404972 C 39.3595,43.143661 39.0377,44.824636 38.3943,46.4479 L 25,46.4479 L 25,46.4479 z\" /><path\n   style=\"fill:url(#linearGradient2389);fill-opacity:1\"\n   id=\"path8\"\n   d=\"M 25,44.80819 L 37.1751,44.80819 C 37.5222,43.654514 37.7,42.517382 37.7,41.404972 C 37.7,38.891781 36.9888,36.617519 35.5579,34.574013 C 34.1271,32.530409 32.2813,31.022474 30.0377,30.058383 C 28.4541,29.438018 28.3951,29.399211 28.3951,28.319792 C 28.3951,27.471032 28.9539,26.844753 30.0631,26.441055 C 31.5955,25.394532 32.366,24.010199 32.366,22.288055 C 32.366,21.043773 31.9342,19.964353 31.0791,19.024984 C 30.2155,18.093791 29.1741,17.55822 27.9549,17.409896 C 26.9558,17.327462 26.4647,16.783619 26.4647,15.770089 C 26.4647,15.316949 26.6425,14.896704 27.0066,14.509356 C 27.9041,13.833737 28.3528,12.951982 28.3528,11.856116 C 28.3528,10.957915 28.0141,10.183316 27.3537,9.5405894 C 26.6933,8.8978633 25.9059,8.5765015 25,8.5765015 C 24.0602,8.5765015 23.2559,8.8978633 22.6039,9.5405894 C 21.952,10.183316 21.6303,10.957915 21.6303,11.856116 C 21.6303,12.935535 22.0705,13.817189 22.968,14.509356 C 23.3321,14.863713 23.5099,15.283956 23.5099,15.770089 C 23.5099,16.783619 23.0273,17.327462 22.0451,17.409896 C 20.809,17.55822 19.7591,18.093791 18.9125,19.024984 C 18.0573,19.964353 17.634,21.043773 17.634,22.288055 C 17.634,24.010199 18.4045,25.394532 19.9369,26.441055 C 21.0461,26.853026 21.6049,27.48748 21.6049,28.319792 C 21.6049,29.399211 21.5375,29.438018 19.9369,30.058383 C 17.6933,31.022474 15.856,32.530409 14.4336,34.574013 C 13.0112,36.617519 12.3,38.891781 12.3,41.404972 C 12.3,42.599816 12.4778,43.728675 12.8249,44.80819 L 25,44.80819 L 25,44.80819 z\"\n   sodipodi:nodetypes=\"ccsscscsccscssssscsccscscssccc\" />\n</svg>"
+
+/***/ },
+/* 229 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
-	var isReactClassish = __webpack_require__(229),
-	    isReactElementish = __webpack_require__(230);
+	var isReactClassish = __webpack_require__(230),
+	    isReactElementish = __webpack_require__(231);
 
 	function makeExportsHot(m, React) {
 	  if (isReactElementish(m.exports, React)) {
@@ -29211,7 +29221,7 @@
 
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	function hasRender(Class) {
@@ -29261,10 +29271,10 @@
 	module.exports = isReactClassish;
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var isReactClassish = __webpack_require__(229);
+	var isReactClassish = __webpack_require__(230);
 
 	function isReactElementish(obj, React) {
 	  if (!obj) {
@@ -29278,7 +29288,7 @@
 	module.exports = isReactElementish;
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// removed by extract-text-webpack-plugin
