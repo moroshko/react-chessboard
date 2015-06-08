@@ -18,9 +18,9 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _rawPiecesWPSvg = require('!!raw!./pieces/wP.svg');
+var _SquareSquare = require('../Square/Square');
 
-var _rawPiecesWPSvg2 = _interopRequireDefault(_rawPiecesWPSvg);
+var _SquareSquare2 = _interopRequireDefault(_SquareSquare);
 
 var Chessboard = (function (_Component) {
   function Chessboard(props) {
@@ -36,8 +36,10 @@ var Chessboard = (function (_Component) {
     value: function render() {
       return _react2['default'].createElement(
         'div',
-        null,
-        _react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: _rawPiecesWPSvg2['default'] } })
+        { className: 'react-chessboard' },
+        _react2['default'].createElement(_SquareSquare2['default'], { color: 'w', piece: 'bQ' }),
+        _react2['default'].createElement(_SquareSquare2['default'], { color: 'b', piece: 'wN' }),
+        _react2['default'].createElement(_SquareSquare2['default'], { color: 'b' })
       );
     }
   }], [{

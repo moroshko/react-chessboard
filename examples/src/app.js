@@ -4,7 +4,7 @@ require('./app.less');
 
 import React, { Component } from 'react';
 import a11y from 'react-a11y';
-import Chessboard from '../../src/Chessboard';
+import Chessboard from '../../src/Chessboard/Chessboard';
 
 class App extends Component { // eslint-disable-line no-shadow
   render() {

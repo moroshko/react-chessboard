@@ -1,7 +1,7 @@
 {
   "name": "react-chessboard",
   "version": "0.0.1",
-  "description": "Chess board React component",
+  "description": "React chess board component",
   "author": "Misha Moroshko <michael.moroshko@gmail.com>",
   "main": "dist/Chessboard.js",
   "repository": {
@@ -14,9 +14,9 @@
   },
   "scripts": {
     "start": "babel-node server",
-    "lint": "eslint src/Chessboard.js examples/src",
-    "test": "mocha src/tests/index.js --opts mocha.opts",
-    "dist": "babel src/Chessboard.js -o dist/Chessboard.js",
+    "lint": "eslint src/**/*.js examples/src/*.js",
+    "test": "mocha test/index.js --opts mocha.opts",
+    "dist": "babel src/Chessboard/Chessboard.js -o dist/Chessboard/Chessboard.js && babel src/Square/Square.js -o dist/Square/Square.js",
     "examples-dist": "webpack --config webpack.dev.config.js",
     "build": "npm run lint && npm test && npm run dist && npm run examples-dist"
   },

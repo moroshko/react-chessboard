@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component, PropTypes } from 'react';
-import pawn from '!!raw!./pieces/wP.svg';
+import Square from '../Square/Square';
 
 export default class Chessboard extends Component {
   static propTypes = {
@@ -18,8 +18,10 @@ export default class Chessboard extends Component {
 
   render() {
     return (
-      <div>
-        <div dangerouslySetInnerHTML={{ __html: pawn }}></div>
+      <div className="react-chessboard">
+        <Square color="w" piece="bQ" />
+        <Square color="b" piece="wN" />
+        <Square color="b" />
       </div>
     );
   }
