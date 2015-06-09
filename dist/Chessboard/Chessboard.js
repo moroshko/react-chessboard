@@ -18,38 +18,63 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDnd = require('react-dnd');
+
+var _reactDndModulesBackendsHTML5 = require('react-dnd/modules/backends/HTML5');
+
+var _reactDndModulesBackendsHTML52 = _interopRequireDefault(_reactDndModulesBackendsHTML5);
+
+var _constants = require('../constants');
+
+var _fenFen = require('../fen/fen');
+
 var _SquareSquare = require('../Square/Square');
 
 var _SquareSquare2 = _interopRequireDefault(_SquareSquare);
 
-var _fenFen = require('../fen/fen');
+var _PiecePiece = require('../Piece/Piece');
+
+var _PiecePiece2 = _interopRequireDefault(_PiecePiece);
 
 require('./Chessboard.less');
 
 var Chessboard = (function (_Component) {
   function Chessboard(props) {
-    _classCallCheck(this, Chessboard);
+    _classCallCheck(this, _Chessboard);
 
-    _get(Object.getPrototypeOf(Chessboard.prototype), 'constructor', this).call(this, props);
+    _get(Object.getPrototypeOf(_Chessboard.prototype), 'constructor', this).call(this, props);
   }
 
   _inherits(Chessboard, _Component);
 
-  _createClass(Chessboard, [{
+  var _Chessboard = Chessboard;
+
+  _createClass(_Chessboard, [{
     key: 'render',
     value: function render() {
       var pieces = (0, _fenFen.getPieces)(this.props.fen);
       var squares = [];
 
-      for (var r = 7; r >= 0; r--) {
-        for (var c = 0; c <= 7; c++) {
-          var color = (r + c) % 2 === 0 ? 'b' : 'w';
-          var key = 8 * (7 - r) + c;
-          var piece = pieces[key];
+      for (var i = 0; i < 64; i++) {
+        var piece = pieces[i];
+        var square = _constants.SQUARE.NAMES[i];
 
-          squares.push(_react2['default'].createElement(_SquareSquare2['default'], { color: color, piece: piece, key: key }));
-        }
+        squares.push(_react2['default'].createElement(
+          _SquareSquare2['default'],
+          { name: square, key: square },
+          piece && _react2['default'].createElement(_PiecePiece2['default'], { name: piece, square: square })
+        ));
       }
+
+      // for (let r = 7; r >= 0; r--) {
+      //   for (let c = 0; c <= 7; c++) {
+      //     const color = ((r + c) % 2 === 0 ? 'b' : 'w');
+      //     const key = 8 * (7 - r) + c;
+      //     const piece = pieces[key];
+
+      //     squares.push(<Square color={color} piece={piece} key={key} />);
+      //   }
+      // }
 
       return _react2['default'].createElement(
         'div',
@@ -71,6 +96,7 @@ var Chessboard = (function (_Component) {
     enumerable: true
   }]);
 
+  Chessboard = (0, _reactDnd.DragDropContext)(_reactDndModulesBackendsHTML52['default'])(Chessboard) || Chessboard;
   return Chessboard;
 })(_react.Component);
 

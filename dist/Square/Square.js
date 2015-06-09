@@ -18,54 +18,76 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactDnd = require('react-dnd');
+
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
+var _constants = require('../constants');
+
 require('./Square.less');
+
+var squareTarget = {
+  drop: function drop(props, monitor) {
+    var from = monitor.getItem().from;
+    var to = props.name;
+
+    console.log('From ' + from + ' to ' + to);
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  };
+}
 
 var Square = (function (_Component) {
   function Square(props) {
-    _classCallCheck(this, Square);
+    _classCallCheck(this, _Square);
 
-    _get(Object.getPrototypeOf(Square.prototype), 'constructor', this).call(this, props);
-
-    if (this.props.piece === null) {
-      this.piece = null;
-    } else {
-      this.piece = require('!!raw!../../pieces/' + this.props.piece + '.svg');
-    }
+    _get(Object.getPrototypeOf(_Square.prototype), 'constructor', this).call(this, props);
   }
 
   _inherits(Square, _Component);
 
-  _createClass(Square, [{
+  var _Square = Square;
+
+  _createClass(_Square, [{
     key: 'render',
     value: function render() {
+      var _props = this.props;
+      var name = _props.name;
+      var connectDropTarget = _props.connectDropTarget;
+      var isOver = _props.isOver;
+
+      var black = (name.charCodeAt(0) + name.charCodeAt(1)) % 2 === 0;
       var classes = (0, _classnames2['default'])({
         'react-chessboard-square': true,
-        'react-chessboard-square--white': this.props.color === 'w',
-        'react-chessboard-square--black': this.props.color === 'b'
+        'react-chessboard-square--white': !black,
+        'react-chessboard-square--black': black,
+        'react-chessboard-square--over': isOver
       });
 
-      return _react2['default'].createElement('div', { className: classes,
-        dangerouslySetInnerHTML: { __html: this.piece } });
+      return connectDropTarget(_react2['default'].createElement(
+        'div',
+        { className: classes },
+        this.props.children
+      ));
     }
   }], [{
     key: 'propTypes',
     value: {
-      color: _react.PropTypes.oneOf(['w', 'b']).isRequired,
-      piece: _react.PropTypes.oneOf(['wP', 'wN', 'wB', 'wR', 'wQ', 'wK', 'bP', 'bN', 'bB', 'bR', 'bQ', 'bK'])
-    },
-    enumerable: true
-  }, {
-    key: 'defaultProps',
-    value: {
-      piece: null
+      name: _react.PropTypes.oneOf(_constants.SQUARE.NAMES).isRequired,
+      connectDropTarget: _react.PropTypes.func.isRequired,
+      isOver: _react.PropTypes.bool.isRequired
     },
     enumerable: true
   }]);
 
+  Square = (0, _reactDnd.DropTarget)(_constants.DND_TYPES.PIECE, squareTarget, collect)(Square) || Square;
   return Square;
 })(_react.Component);
 

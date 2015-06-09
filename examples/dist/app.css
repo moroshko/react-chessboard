@@ -2,8 +2,6 @@
   display: flex;
   width: 12.5%;
   height: 12.5%;
-  justify-content: center;
-  align-items: center;
 }
 .react-chessboard-square--white {
   background-color: #fff;
@@ -11,7 +9,21 @@
 .react-chessboard-square--black {
   background-color: #aaa;
 }
-.react-chessboard-square svg {
+.react-chessboard-square--over {
+  background-color: #ff0000;
+}
+.react-chessboard-piece {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.react-chessboard-piece--dragging {
+  display: none;
+}
+.react-chessboard-piece svg {
   width: 90%;
   height: 90%;
 }

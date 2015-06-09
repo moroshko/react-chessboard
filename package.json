@@ -21,7 +21,8 @@
     "build": "npm run lint && npm test && npm run dist && npm run examples-dist"
   },
   "dependencies": {
-    "classnames": "^2.1.2"
+    "classnames": "^2.1.2",
+    "react-dnd": "^1.1.2"
   },
   "devDependencies": {
     "babel": "^5.5.5",

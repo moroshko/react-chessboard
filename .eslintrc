@@ -15,6 +15,14 @@
   "rules": {
     "space-after-keywords": "always",
     "quotes": "single",
+    "new-cap": [2, {
+      "capIsNewExceptions": [
+        "DragDropContext",
+        "HTML5Backend",
+        "DragSource",
+        "DropTarget"
+      ]
+    }],
 
     "react/jsx-boolean-value": 1,
     "react/jsx-quotes": [1, "double"],
