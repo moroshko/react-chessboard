@@ -20,6 +20,9 @@
     "examples-dist": "webpack --config webpack.dev.config.js",
     "build": "npm run lint && npm test && npm run dist && npm run examples-dist"
   },
+  "dependencies": {
+    "classnames": "^2.1.2"
+  },
   "devDependencies": {
     "babel": "^5.5.5",
     "babel-core": "^5.5.5",

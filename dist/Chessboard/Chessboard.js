@@ -22,6 +22,10 @@ var _SquareSquare = require('../Square/Square');
 
 var _SquareSquare2 = _interopRequireDefault(_SquareSquare);
 
+var _fenFen = require('../fen/fen');
+
+require('./Chessboard.less');
+
 var Chessboard = (function (_Component) {
   function Chessboard(props) {
     _classCallCheck(this, Chessboard);
@@ -34,12 +38,23 @@ var Chessboard = (function (_Component) {
   _createClass(Chessboard, [{
     key: 'render',
     value: function render() {
+      var pieces = (0, _fenFen.getPieces)(this.props.fen);
+      var squares = [];
+
+      for (var r = 7; r >= 0; r--) {
+        for (var c = 0; c <= 7; c++) {
+          var color = (r + c) % 2 === 0 ? 'b' : 'w';
+          var key = 8 * (7 - r) + c;
+          var piece = pieces[key];
+
+          squares.push(_react2['default'].createElement(_SquareSquare2['default'], { color: color, piece: piece, key: key }));
+        }
+      }
+
       return _react2['default'].createElement(
         'div',
         { className: 'react-chessboard' },
-        _react2['default'].createElement(_SquareSquare2['default'], { color: 'w', piece: 'bQ' }),
-        _react2['default'].createElement(_SquareSquare2['default'], { color: 'b', piece: 'wN' }),
-        _react2['default'].createElement(_SquareSquare2['default'], { color: 'b' })
+        squares
       );
     }
   }], [{

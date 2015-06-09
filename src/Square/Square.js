@@ -1,6 +1,9 @@
 'use strict';
 
+require('./Square.less');
+
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 
 export default class Square extends Component {
   static propTypes = {
@@ -24,9 +27,16 @@ export default class Square extends Component {
   }
 
   render() {
+    const classes = classNames({
+      'react-chessboard-square': true,
+      'react-chessboard-square--white': this.props.color === 'w',
+      'react-chessboard-square--black': this.props.color === 'b'
+    });
+
     return (
-      <div className="react-chessboard-square"
-           dangerouslySetInnerHTML={{ __html: this.piece }}></div>
+      <div className={classes}
+           dangerouslySetInnerHTML={{ __html: this.piece }}>
+      </div>
     );
   }
 }

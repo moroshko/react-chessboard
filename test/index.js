@@ -7,4 +7,5 @@ global.window = global.document.parentWindow;
 global.navigator = global.window.navigator;
 
 require('../src/Chessboard/Chessboard.test');
+require('../src/fen/fen.test');
 require('../src/Square/Square.test');

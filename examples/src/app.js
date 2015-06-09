@@ -11,7 +11,9 @@ class App extends Component { // eslint-disable-line no-shadow
     return (
       <div>
         <h1>react-chessboard</h1>
-        <Chessboard />
+        <div className="chessboard">
+          <Chessboard />
+        </div>
       </div>
     );
   }

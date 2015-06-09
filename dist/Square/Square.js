@@ -18,6 +18,12 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+require('./Square.less');
+
 var Square = (function (_Component) {
   function Square(props) {
     _classCallCheck(this, Square);
@@ -36,7 +42,13 @@ var Square = (function (_Component) {
   _createClass(Square, [{
     key: 'render',
     value: function render() {
-      return _react2['default'].createElement('div', { className: 'react-chessboard-square',
+      var classes = (0, _classnames2['default'])({
+        'react-chessboard-square': true,
+        'react-chessboard-square--white': this.props.color === 'w',
+        'react-chessboard-square--black': this.props.color === 'b'
+      });
+
+      return _react2['default'].createElement('div', { className: classes,
         dangerouslySetInnerHTML: { __html: this.piece } });
     }
   }], [{
