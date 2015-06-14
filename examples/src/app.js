@@ -35,7 +35,8 @@ class App extends Component { // eslint-disable-line no-shadow
       <div>
         <h1>react-chessboard</h1>
         <div className="chessboard">
-          <Chessboard fen={this.state.fen} onMove={this.onMove} />
+          <Chessboard fen={this.state.fen}
+                      onMove={this.onMove} />
         </div>
       </div>
     );
