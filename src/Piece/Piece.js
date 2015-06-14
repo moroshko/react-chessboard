@@ -8,6 +8,10 @@ import { SQUARE, PIECE, DND_TYPES } from '../constants';
 import { DragSource } from 'react-dnd';
 
 const pieceSource = {
+  canDrag(props) {
+    return props.dnd;
+  },
+
   beginDrag(props) {
     return {
       from: props.square
@@ -25,6 +29,7 @@ function collect(connect, monitor) {
 @DragSource(DND_TYPES.PIECE, pieceSource, collect)
 export default class Piece extends Component {
   static propTypes = {
+    dnd: PropTypes.bool.isRequired,
     name: PropTypes.oneOf(Object.keys(PIECE)).isRequired,
     square: PropTypes.oneOf(SQUARE.NAMES).isRequired,
     connectDragSource: PropTypes.func.isRequired,

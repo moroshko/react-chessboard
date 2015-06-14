@@ -13,11 +13,15 @@ import Piece from '../Piece/Piece';
 @DragDropContext(HTML5Backend)
 export default class Chessboard extends Component {
   static propTypes = {
-    fen: PropTypes.string
+    dnd: PropTypes.bool,
+    fen: PropTypes.string,
+    onMove: PropTypes.func
   };
 
   static defaultProps = {
-    fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+    dnd: true,
+    fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+    onMove: () => {}
   };
 
   constructor(props) {
@@ -25,7 +29,8 @@ export default class Chessboard extends Component {
   }
 
   render() {
-    const pieces = getPieces(this.props.fen);
+    const { dnd, fen, onMove } = this.props;
+    const pieces = getPieces(fen);
     let squares = [];
 
     for (let i = 0; i < 64; i++) {
@@ -33,21 +38,11 @@ export default class Chessboard extends Component {
       const square = SQUARE.NAMES[i];
 
       squares.push(
-        <Square name={square} key={square}>
-          {piece && <Piece name={piece} square={square} />}
+        <Square name={square} key={square} onMove={onMove} >
+          {piece && <Piece dnd={dnd} name={piece} square={square} />}
         </Square>
       );
     }
-
-    // for (let r = 7; r >= 0; r--) {
-    //   for (let c = 0; c <= 7; c++) {
-    //     const color = ((r + c) % 2 === 0 ? 'b' : 'w');
-    //     const key = 8 * (7 - r) + c;
-    //     const piece = pieces[key];
-
-    //     squares.push(<Square color={color} piece={piece} key={key} />);
-    //   }
-    // }
 
     return (
       <div className="react-chessboard">

@@ -9,10 +9,10 @@ import { SQUARE, DND_TYPES } from '../constants';
 
 const squareTarget = {
   drop(props, monitor) {
-    const from = monitor.getItem().from;
-    const to = props.name;
+    const fromSquare = monitor.getItem().from;
+    const toSquare = props.name;
 
-    console.log(`From ${from} to ${to}`);
+    props.onMove(fromSquare, toSquare);
   }
 };
 
@@ -27,6 +27,7 @@ function collect(connect, monitor) {
 export default class Square extends Component {
   static propTypes = {
     name: PropTypes.oneOf(SQUARE.NAMES).isRequired,
+    onMove: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired
   };
