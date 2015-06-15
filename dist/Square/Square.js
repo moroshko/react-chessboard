@@ -30,10 +30,10 @@ require('./Square.less');
 
 var squareTarget = {
   drop: function drop(props, monitor) {
-    var from = monitor.getItem().from;
-    var to = props.name;
+    var fromSquare = monitor.getItem().from;
+    var toSquare = props.name;
 
-    console.log('From ' + from + ' to ' + to);
+    props.onMove(fromSquare, toSquare);
   }
 };
 
@@ -81,6 +81,7 @@ var Square = (function (_Component) {
     key: 'propTypes',
     value: {
       name: _react.PropTypes.oneOf(_constants.SQUARE.NAMES).isRequired,
+      onMove: _react.PropTypes.func.isRequired,
       connectDropTarget: _react.PropTypes.func.isRequired,
       isOver: _react.PropTypes.bool.isRequired
     },

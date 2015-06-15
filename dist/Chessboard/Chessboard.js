@@ -52,7 +52,12 @@ var Chessboard = (function (_Component) {
   _createClass(_Chessboard, [{
     key: 'render',
     value: function render() {
-      var pieces = (0, _fenFen.getPieces)(this.props.fen);
+      var _props = this.props;
+      var dnd = _props.dnd;
+      var fen = _props.fen;
+      var onMove = _props.onMove;
+
+      var pieces = (0, _fenFen.getPieces)(fen);
       var squares = [];
 
       for (var i = 0; i < 64; i++) {
@@ -61,20 +66,10 @@ var Chessboard = (function (_Component) {
 
         squares.push(_react2['default'].createElement(
           _SquareSquare2['default'],
-          { name: square, key: square },
-          piece && _react2['default'].createElement(_PiecePiece2['default'], { name: piece, square: square })
+          { name: square, key: square, onMove: onMove },
+          piece && _react2['default'].createElement(_PiecePiece2['default'], { dnd: dnd, name: piece, square: square })
         ));
       }
-
-      // for (let r = 7; r >= 0; r--) {
-      //   for (let c = 0; c <= 7; c++) {
-      //     const color = ((r + c) % 2 === 0 ? 'b' : 'w');
-      //     const key = 8 * (7 - r) + c;
-      //     const piece = pieces[key];
-
-      //     squares.push(<Square color={color} piece={piece} key={key} />);
-      //   }
-      // }
 
       return _react2['default'].createElement(
         'div',
@@ -85,13 +80,17 @@ var Chessboard = (function (_Component) {
   }], [{
     key: 'propTypes',
     value: {
-      fen: _react.PropTypes.string
+      dnd: _react.PropTypes.bool,
+      fen: _react.PropTypes.string,
+      onMove: _react.PropTypes.func
     },
     enumerable: true
   }, {
     key: 'defaultProps',
     value: {
-      fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1'
+      dnd: true,
+      fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+      onMove: function onMove() {}
     },
     enumerable: true
   }]);

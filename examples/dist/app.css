@@ -13,19 +13,49 @@
   background-color: #ff0000;
 }
 .react-chessboard-piece {
-  display: flex;
   width: 100%;
   height: 100%;
-  justify-content: center;
-  align-items: center;
+  background-size: cover;
   cursor: pointer;
 }
 .react-chessboard-piece--dragging {
   display: none;
 }
-.react-chessboard-piece svg {
-  width: 90%;
-  height: 90%;
+.react-chessboard-piece--wP {
+  background-image: url(/examples/dist17fa7792c636e5be606538219c034601.svg);
+}
+.react-chessboard-piece--wN {
+  background-image: url(/examples/dist105f1df4fdcbe6a56883773dcd6edfcc.svg);
+}
+.react-chessboard-piece--wB {
+  background-image: url(/examples/dista85a62f1d3256c81def31bd2631268af.svg);
+}
+.react-chessboard-piece--wR {
+  background-image: url(/examples/dist2d49391c39d2ae9e413adadb114bb737.svg);
+}
+.react-chessboard-piece--wQ {
+  background-image: url(/examples/distb711ae556b2a280d028ff40da55afc09.svg);
+}
+.react-chessboard-piece--wK {
+  background-image: url(/examples/dist636bf51b663861e9657627b810eb3ee9.svg);
+}
+.react-chessboard-piece--bP {
+  background-image: url(/examples/dist3bb69edd65019943c26e97c23033015b.svg);
+}
+.react-chessboard-piece--bN {
+  background-image: url(/examples/dist150b9409a36eb6c72bb8613cd2bbdfde.svg);
+}
+.react-chessboard-piece--bB {
+  background-image: url(/examples/dist09f2d05e86d894b7a919034e4a320d60.svg);
+}
+.react-chessboard-piece--bR {
+  background-image: url(/examples/diste4c52fe3b43456435d6762aaa1624db2.svg);
+}
+.react-chessboard-piece--bQ {
+  background-image: url(/examples/dist5edf638c99ed23fd54038c83d5e937d7.svg);
+}
+.react-chessboard-piece--bK {
+  background-image: url(/examples/diste0dce67bbeb9a5f56705da4c8e3f20d8.svg);
 }
 .react-chessboard {
   display: flex;
@@ -39,9 +69,10 @@ body {
   justify-content: center;
   height: 100%;
   margin: 0;
+  font-family: 'Helvetica Neue';
 }
 .chessboard {
-  width: 600px;
-  height: 600px;
+  width: 500px;
+  height: 500px;
   outline: 1px solid black;
 }
