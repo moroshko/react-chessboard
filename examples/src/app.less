@@ -6,8 +6,11 @@ html, body {
   font-family: 'Helvetica Neue';
 }
 
-.chessboard {
-  width: 500px;
-  height: 500px;
+.react-chessboard {
+  @squareSize: 60px;
+  @boardSize: @squareSize * 8;
+  
+  width: @boardSize;
+  height: @boardSize;
   outline: 1px solid black;
 }

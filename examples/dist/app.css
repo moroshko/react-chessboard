@@ -2,6 +2,7 @@
   display: flex;
   width: 12.5%;
   height: 12.5%;
+  position: relative;
 }
 .react-chessboard-square--white {
   background-color: #fff;
@@ -13,8 +14,11 @@
   background-color: #ff0000;
 }
 .react-chessboard-piece {
-  width: 100%;
-  height: 100%;
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 90%;
+  height: 90%;
   background-size: cover;
   cursor: pointer;
 }
@@ -63,6 +67,10 @@
   height: 100%;
   flex-wrap: wrap;
 }
+.react-chessboard--flipped,
+.react-chessboard--flipped .react-chessboard-square {
+  transform: rotate(180deg);
+}
 html,
 body {
   display: flex;
@@ -71,8 +79,8 @@ body {
   margin: 0;
   font-family: 'Helvetica Neue';
 }
-.chessboard {
-  width: 500px;
-  height: 500px;
+.react-chessboard {
+  width: 480px;
+  height: 480px;
   outline: 1px solid black;
 }

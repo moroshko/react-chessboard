@@ -36,6 +36,10 @@ var _PiecePiece = require('../Piece/Piece');
 
 var _PiecePiece2 = _interopRequireDefault(_PiecePiece);
 
+var _classnames = require('classnames');
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 require('./Chessboard.less');
 
 var Chessboard = (function (_Component) {
@@ -54,6 +58,7 @@ var Chessboard = (function (_Component) {
     value: function render() {
       var _props = this.props;
       var dnd = _props.dnd;
+      var orientation = _props.orientation;
       var fen = _props.fen;
       var onMove = _props.onMove;
 
@@ -71,9 +76,14 @@ var Chessboard = (function (_Component) {
         ));
       }
 
+      var classes = (0, _classnames2['default'])({
+        'react-chessboard': true,
+        'react-chessboard--flipped': orientation === _constants.BOARD.ORIENTATION.BLACK
+      });
+
       return _react2['default'].createElement(
         'div',
-        { className: 'react-chessboard' },
+        { className: classes },
         squares
       );
     }
@@ -81,6 +91,9 @@ var Chessboard = (function (_Component) {
     key: 'propTypes',
     value: {
       dnd: _react.PropTypes.bool,
+      orientation: _react.PropTypes.oneOf(Object.keys(_constants.BOARD.ORIENTATION).map(function (name) {
+        return _constants.BOARD.ORIENTATION[name];
+      })),
       fen: _react.PropTypes.string,
       onMove: _react.PropTypes.func
     },
@@ -89,6 +102,7 @@ var Chessboard = (function (_Component) {
     key: 'defaultProps',
     value: {
       dnd: true,
+      orientation: _constants.BOARD.ORIENTATION.WHITE,
       fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
       onMove: function onMove() {}
     },

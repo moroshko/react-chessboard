@@ -1,6 +1,12 @@
 'use strict';
 
 export default {
+  BOARD: {
+    ORIENTATION: {
+      WHITE: 'white',
+      BLACK: 'black'
+    }
+  },
   SQUARE: {
     NAMES: [
       'a8', 'b8', 'c8', 'd8', 'e8', 'f8', 'g8', 'h8',

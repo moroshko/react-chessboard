@@ -10,6 +10,8 @@ var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_ag
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
+function _defineProperty(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
@@ -18,79 +20,77 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDnd = require('react-dnd');
-
 var _constants = require('../constants');
+
+var _reactDnd = require('react-dnd');
 
 var _classnames = require('classnames');
 
 var _classnames2 = _interopRequireDefault(_classnames);
 
-require('./Square.less');
+require('./Piece.less');
 
-var squareTarget = {
-  drop: function drop(props, monitor) {
-    var fromSquare = monitor.getItem().from;
-    var toSquare = props.name;
+var pieceSource = {
+  canDrag: function canDrag(props) {
+    return props.dnd;
+  },
 
-    props.onMove(fromSquare, toSquare);
+  beginDrag: function beginDrag(props) {
+    return {
+      from: props.square
+    };
   }
 };
 
 function collect(connect, monitor) {
   return {
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver()
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
   };
 }
 
-var Square = (function (_Component) {
-  function Square(props) {
-    _classCallCheck(this, _Square);
+var Piece = (function (_Component) {
+  function Piece(props) {
+    _classCallCheck(this, _Piece);
 
-    _get(Object.getPrototypeOf(_Square.prototype), 'constructor', this).call(this, props);
+    _get(Object.getPrototypeOf(_Piece.prototype), 'constructor', this).call(this, props);
   }
 
-  _inherits(Square, _Component);
+  _inherits(Piece, _Component);
 
-  var _Square = Square;
+  var _Piece = Piece;
 
-  _createClass(_Square, [{
+  _createClass(_Piece, [{
     key: 'render',
     value: function render() {
+      var _classNames;
+
       var _props = this.props;
       var name = _props.name;
-      var connectDropTarget = _props.connectDropTarget;
-      var isOver = _props.isOver;
+      var connectDragSource = _props.connectDragSource;
+      var isDragging = _props.isDragging;
 
-      var black = (name.charCodeAt(0) + name.charCodeAt(1)) % 2 === 0;
-      var classes = (0, _classnames2['default'])({
-        'react-chessboard-square': true,
-        'react-chessboard-square--white': !black,
-        'react-chessboard-square--black': black,
-        'react-chessboard-square--over': isOver
-      });
+      var classes = (0, _classnames2['default'])((_classNames = {
+        'react-chessboard-piece': true
+      }, _defineProperty(_classNames, 'react-chessboard-piece--' + name, true), _defineProperty(_classNames, 'react-chessboard-piece--dragging', isDragging), _classNames));
 
-      return connectDropTarget(_react2['default'].createElement(
-        'div',
-        { className: classes },
-        this.props.children
-      ));
+      return connectDragSource(_react2['default'].createElement('div', { className: classes }));
     }
   }], [{
     key: 'propTypes',
     value: {
-      name: _react.PropTypes.oneOf(_constants.SQUARE.NAMES).isRequired,
-      onMove: _react.PropTypes.func.isRequired,
-      connectDropTarget: _react.PropTypes.func.isRequired,
-      isOver: _react.PropTypes.bool.isRequired
+      dnd: _react.PropTypes.bool.isRequired,
+      name: _react.PropTypes.oneOf(_constants.PIECE.NAMES).isRequired,
+      square: _react.PropTypes.oneOf(_constants.SQUARE.NAMES).isRequired,
+      connectDragSource: _react.PropTypes.func.isRequired,
+      isDragging: _react.PropTypes.bool.isRequired
     },
     enumerable: true
   }]);
 
-  Square = (0, _reactDnd.DropTarget)(_constants.DND_TYPES.PIECE, squareTarget, collect)(Square) || Square;
-  return Square;
+  Piece = (0, _reactDnd.DragSource)(_constants.DND_TYPES.PIECE, pieceSource, collect)(Piece) || Piece;
+  return Piece;
 })(_react.Component);
 
-exports['default'] = Square;
+exports['default'] = Piece;
 module.exports = exports['default'];
