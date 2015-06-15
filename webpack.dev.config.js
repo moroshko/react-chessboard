@@ -31,7 +31,7 @@ module.exports = {
       exclude: /node_modules/
     }, {
       test: /\.svg$/,
-      loader: 'url?limit=10000&mimetype=image/svg+xml!svgo'
+      loader: 'file'
     }]
   },
 

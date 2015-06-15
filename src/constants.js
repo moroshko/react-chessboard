@@ -14,18 +14,10 @@ export default {
     ]
   },
   PIECE: {
-    wP: require(`!!raw!../pieces/wP.svg`),
-    wN: require(`!!raw!../pieces/wN.svg`),
-    wB: require(`!!raw!../pieces/wB.svg`),
-    wR: require(`!!raw!../pieces/wR.svg`),
-    wQ: require(`!!raw!../pieces/wQ.svg`),
-    wK: require(`!!raw!../pieces/wK.svg`),
-    bP: require(`!!raw!../pieces/bP.svg`),
-    bN: require(`!!raw!../pieces/bN.svg`),
-    bB: require(`!!raw!../pieces/bB.svg`),
-    bR: require(`!!raw!../pieces/bR.svg`),
-    bQ: require(`!!raw!../pieces/bQ.svg`),
-    bK: require(`!!raw!../pieces/bK.svg`)
+    NAMES: [
+      'wP', 'wN', 'wB', 'wR', 'wQ', 'wK',
+      'bP', 'bN', 'bB', 'bR', 'bQ', 'bK'
+    ]
   },
   DND_TYPES: {
     PIECE: 'piece'

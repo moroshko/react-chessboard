@@ -30,7 +30,7 @@ function collect(connect, monitor) {
 export default class Piece extends Component {
   static propTypes = {
     dnd: PropTypes.bool.isRequired,
-    name: PropTypes.oneOf(Object.keys(PIECE)).isRequired,
+    name: PropTypes.oneOf(PIECE.NAMES).isRequired,
     square: PropTypes.oneOf(SQUARE.NAMES).isRequired,
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired
@@ -44,13 +44,12 @@ export default class Piece extends Component {
     const { name, connectDragSource, isDragging } = this.props;
     const classes = classNames({
       'react-chessboard-piece': true,
+      [`react-chessboard-piece--${name}`]: true,
       'react-chessboard-piece--dragging': isDragging
     });
 
     return connectDragSource(
-      <div className={classes}
-           dangerouslySetInnerHTML={{ __html: PIECE[name] }}>
-      </div>
+      <div className={classes} />
     );
   }
 }
