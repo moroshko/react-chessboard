@@ -8,6 +8,13 @@ import { SQUARE, DND_TYPES } from '../constants';
 import classNames from 'classnames';
 
 const squareTarget = {
+  canDrop(props, monitor) {
+    const fromSquare = monitor.getItem().from;
+    const toSquare = props.name;
+
+    return props.canMove(fromSquare, toSquare);
+  },
+
   drop(props, monitor) {
     const fromSquare = monitor.getItem().from;
     const toSquare = props.name;

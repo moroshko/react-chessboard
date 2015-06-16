@@ -13,7 +13,8 @@ module.exports = {
 
   output: {
     path: path.join(__dirname, 'examples', 'dist'), // Must be an absolute path
-    filename: 'app.js'
+    filename: 'app.js',
+    publicPath: ''
   },
   
   module: {

@@ -19,6 +19,7 @@ class App extends Component { // eslint-disable-line no-shadow
     };
 
     this.flipBoard = ::this.flipBoard;
+    this.canMove = ::this.canMove;
     this.onMove = ::this.onMove;
   }
 
@@ -28,6 +29,14 @@ class App extends Component { // eslint-disable-line no-shadow
         ? BOARD.ORIENTATION.BLACK
         : BOARD.ORIENTATION.WHITE
     });
+  }
+
+  canMove(fromSquare, toSquare) {
+    const legalMoves = this.game.moves({ verbose: true });
+
+    return legalMoves
+      .filter(legalMove => legalMove.from === fromSquare &&
+                           legalMove.to === toSquare).length === 1;
   }
 
   onMove(fromSquare, toSquare) {
@@ -48,6 +57,7 @@ class App extends Component { // eslint-disable-line no-shadow
         <div className="chessboard">
           <Chessboard orientation={this.state.orientation}
                       fen={this.state.fen}
+                      canMove={this.canMove}
                       onMove={this.onMove} />
           <button onClick={this.flipBoard}>Flip board</button>
         </div>

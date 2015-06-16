@@ -19,6 +19,7 @@ export default class Chessboard extends Component {
       Object.keys(BOARD.ORIENTATION).map(name => BOARD.ORIENTATION[name])
     ),
     fen: PropTypes.string,
+    canMove: PropTypes.func,
     onMove: PropTypes.func
   };
 
@@ -26,6 +27,7 @@ export default class Chessboard extends Component {
     dnd: true,
     orientation: BOARD.ORIENTATION.WHITE,
     fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+    canMove: () => true,
     onMove: () => {}
   };
 
@@ -34,7 +36,7 @@ export default class Chessboard extends Component {
   }
 
   render() {
-    const { dnd, orientation, fen, onMove } = this.props;
+    const { dnd, orientation, fen, canMove, onMove } = this.props;
     const pieces = getPieces(fen);
     let squares = [];
 
@@ -43,7 +45,7 @@ export default class Chessboard extends Component {
       const square = SQUARE.NAMES[i];
 
       squares.push(
-        <Square name={square} key={square} onMove={onMove} >
+        <Square name={square} key={square} canMove={canMove} onMove={onMove}>
           {piece && <Piece dnd={dnd} name={piece} square={square} />}
         </Square>
       );
