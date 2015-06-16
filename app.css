@@ -1,0 +1,86 @@
+.react-chessboard-square {
+  display: flex;
+  width: 12.5%;
+  height: 12.5%;
+  position: relative;
+}
+.react-chessboard-square--white {
+  background-color: #fff;
+}
+.react-chessboard-square--black {
+  background-color: #aaa;
+}
+.react-chessboard-square--over {
+  background-color: #ff0000;
+}
+.react-chessboard-piece {
+  position: absolute;
+  left: 5%;
+  top: 5%;
+  width: 90%;
+  height: 90%;
+  background-size: cover;
+  cursor: pointer;
+}
+.react-chessboard-piece--dragging {
+  display: none;
+}
+.react-chessboard-piece--wP {
+  background-image: url(17fa7792c636e5be606538219c034601.svg);
+}
+.react-chessboard-piece--wN {
+  background-image: url(105f1df4fdcbe6a56883773dcd6edfcc.svg);
+}
+.react-chessboard-piece--wB {
+  background-image: url(a85a62f1d3256c81def31bd2631268af.svg);
+}
+.react-chessboard-piece--wR {
+  background-image: url(2d49391c39d2ae9e413adadb114bb737.svg);
+}
+.react-chessboard-piece--wQ {
+  background-image: url(b711ae556b2a280d028ff40da55afc09.svg);
+}
+.react-chessboard-piece--wK {
+  background-image: url(636bf51b663861e9657627b810eb3ee9.svg);
+}
+.react-chessboard-piece--bP {
+  background-image: url(3bb69edd65019943c26e97c23033015b.svg);
+}
+.react-chessboard-piece--bN {
+  background-image: url(150b9409a36eb6c72bb8613cd2bbdfde.svg);
+}
+.react-chessboard-piece--bB {
+  background-image: url(09f2d05e86d894b7a919034e4a320d60.svg);
+}
+.react-chessboard-piece--bR {
+  background-image: url(e4c52fe3b43456435d6762aaa1624db2.svg);
+}
+.react-chessboard-piece--bQ {
+  background-image: url(5edf638c99ed23fd54038c83d5e937d7.svg);
+}
+.react-chessboard-piece--bK {
+  background-image: url(e0dce67bbeb9a5f56705da4c8e3f20d8.svg);
+}
+.react-chessboard {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-wrap: wrap;
+}
+.react-chessboard--flipped,
+.react-chessboard--flipped .react-chessboard-square {
+  transform: rotate(180deg);
+}
+html,
+body {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  font-family: 'Helvetica Neue';
+}
+.react-chessboard {
+  width: 480px;
+  height: 480px;
+  outline: 1px solid black;
+}
