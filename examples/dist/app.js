@@ -54,7 +54,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "0a6d660977e4f0759bd2"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8ce62b2aa4833edb0758"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 /******/ 	
@@ -8007,6 +8007,7 @@
 	    };
 
 	    this.flipBoard = this.flipBoard.bind(this);
+	    this.canMove = this.canMove.bind(this);
 	    this.onMove = this.onMove.bind(this);
 	  }
 
@@ -8018,6 +8019,15 @@
 	      this.setState({
 	        orientation: this.state.orientation === _srcConstants.BOARD.ORIENTATION.WHITE ? _srcConstants.BOARD.ORIENTATION.BLACK : _srcConstants.BOARD.ORIENTATION.WHITE
 	      });
+	    }
+	  }, {
+	    key: 'canMove',
+	    value: function canMove(fromSquare, toSquare) {
+	      var legalMoves = this.game.moves({ verbose: true });
+
+	      return legalMoves.filter(function (legalMove) {
+	        return legalMove.from === fromSquare && legalMove.to === toSquare;
+	      }).length === 1;
 	    }
 	  }, {
 	    key: 'onMove',
@@ -8047,6 +8057,7 @@
 	          { className: 'chessboard' },
 	          _react2['default'].createElement(_srcChessboardChessboard2['default'], { orientation: this.state.orientation,
 	            fen: this.state.fen,
+	            canMove: this.canMove,
 	            onMove: this.onMove }),
 	          _react2['default'].createElement(
 	            'button',
@@ -28567,6 +28578,7 @@
 	      var dnd = _props.dnd;
 	      var orientation = _props.orientation;
 	      var fen = _props.fen;
+	      var canMove = _props.canMove;
 	      var onMove = _props.onMove;
 
 	      var pieces = (0, _fenFen.getPieces)(fen);
@@ -28578,7 +28590,7 @@
 
 	        squares.push(_react2['default'].createElement(
 	          _SquareSquare2['default'],
-	          { name: square, key: square, onMove: onMove },
+	          { name: square, key: square, canMove: canMove, onMove: onMove },
 	          piece && _react2['default'].createElement(_PiecePiece2['default'], { dnd: dnd, name: piece, square: square })
 	        ));
 	      }
@@ -28602,6 +28614,7 @@
 	        return _constants.BOARD.ORIENTATION[name];
 	      })),
 	      fen: _react.PropTypes.string,
+	      canMove: _react.PropTypes.func,
 	      onMove: _react.PropTypes.func
 	    },
 	    enumerable: true
@@ -28611,6 +28624,9 @@
 	      dnd: true,
 	      orientation: _constants.BOARD.ORIENTATION.WHITE,
 	      fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+	      canMove: function canMove() {
+	        return true;
+	      },
 	      onMove: function onMove() {}
 	    },
 	    enumerable: true
@@ -36660,6 +36676,13 @@
 	__webpack_require__(344);
 
 	var squareTarget = {
+	  canDrop: function canDrop(props, monitor) {
+	    var fromSquare = monitor.getItem().from;
+	    var toSquare = props.name;
+
+	    return props.canMove(fromSquare, toSquare);
+	  },
+
 	  drop: function drop(props, monitor) {
 	    var fromSquare = monitor.getItem().from;
 	    var toSquare = props.name;

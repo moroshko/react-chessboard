@@ -60,6 +60,7 @@ var Chessboard = (function (_Component) {
       var dnd = _props.dnd;
       var orientation = _props.orientation;
       var fen = _props.fen;
+      var canMove = _props.canMove;
       var onMove = _props.onMove;
 
       var pieces = (0, _fenFen.getPieces)(fen);
@@ -71,7 +72,7 @@ var Chessboard = (function (_Component) {
 
         squares.push(_react2['default'].createElement(
           _SquareSquare2['default'],
-          { name: square, key: square, onMove: onMove },
+          { name: square, key: square, canMove: canMove, onMove: onMove },
           piece && _react2['default'].createElement(_PiecePiece2['default'], { dnd: dnd, name: piece, square: square })
         ));
       }
@@ -95,6 +96,7 @@ var Chessboard = (function (_Component) {
         return _constants.BOARD.ORIENTATION[name];
       })),
       fen: _react.PropTypes.string,
+      canMove: _react.PropTypes.func,
       onMove: _react.PropTypes.func
     },
     enumerable: true
@@ -104,6 +106,9 @@ var Chessboard = (function (_Component) {
       dnd: true,
       orientation: _constants.BOARD.ORIENTATION.WHITE,
       fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+      canMove: function canMove() {
+        return true;
+      },
       onMove: function onMove() {}
     },
     enumerable: true

@@ -29,6 +29,13 @@ var _classnames2 = _interopRequireDefault(_classnames);
 require('./Square.less');
 
 var squareTarget = {
+  canDrop: function canDrop(props, monitor) {
+    var fromSquare = monitor.getItem().from;
+    var toSquare = props.name;
+
+    return props.canMove(fromSquare, toSquare);
+  },
+
   drop: function drop(props, monitor) {
     var fromSquare = monitor.getItem().from;
     var toSquare = props.name;
