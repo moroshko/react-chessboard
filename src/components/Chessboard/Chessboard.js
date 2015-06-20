@@ -3,13 +3,13 @@
 require('./Chessboard.less');
 
 import React, { Component, PropTypes } from 'react';
+import classNames from 'classnames';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd/modules/backends/HTML5';
-import { BOARD, SQUARE } from '../constants';
-import { getPieces } from '../fen/fen';
+import { BOARD, SQUARE } from '../../utils/constants/constants';
+import { getPieces } from '../../utils/fen/fen';
 import Square from '../Square/Square';
 import Piece from '../Piece/Piece';
-import classNames from 'classnames';
 
 @DragDropContext(HTML5Backend)
 export default class Chessboard extends Component {

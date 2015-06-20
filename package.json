@@ -14,9 +14,9 @@
   },
   "scripts": {
     "start": "babel-node server",
-    "lint": "eslint src/**/*.js examples/src/*.js",
-    "test": "mocha test/index.js --opts mocha.opts",
-    "dist": "babel src/Chessboard/Chessboard.js -o dist/Chessboard/Chessboard.js && babel src/Square/Square.js -o dist/Square/Square.js && babel src/Piece/Piece.js -o dist/Piece/Piece.js && babel src/fen/fen.js -o dist/fen/fen.js && babel src/constants.js -o dist/constants.js",
+    "lint": "eslint src examples/src",
+    "test": "mocha tests.js --opts mocha.opts",
+    "dist": "webpack --config webpack.dist.config.js",
     "examples-dist": "webpack --config webpack.dev.config.js",
     "build": "npm run lint && npm test && npm run dist && npm run examples-dist",
     "gh-pages": "git checkout gh-pages; git pull; git merge master; npm run examples-dist; cp examples/dist/*.* .; git add index.html app.css app.js *.svg; git commit -m 'Update gh-pages files'; git push; git checkout master"
@@ -37,7 +37,6 @@
     "eslint-loader": "^0.13.0",
     "eslint-plugin-react": "^2.5.2",
     "extract-text-webpack-plugin": "^0.8.2",
-    "file-loader": "^0.8.4",
     "jsdom": ">=3.1.2 <4.0.0",
     "less": "^2.5.1",
     "less-loader": "^2.2.0",
@@ -46,6 +45,7 @@
     "react": "^0.13.3",
     "react-hot-loader": "^1.2.7",
     "style-loader": "^0.12.3",
+    "url-loader": "^0.5.6",
     "webpack": "^1.9.11",
     "webpack-dev-server": "^1.9.0"
   },

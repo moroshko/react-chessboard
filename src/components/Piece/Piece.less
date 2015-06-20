@@ -1,0 +1,64 @@
+.react-chessboard-piece {
+  @pieceSize: 90%;
+  @offset: (100% - @pieceSize) / 2;
+
+  position: absolute;
+  left: @offset;
+  top: @offset;
+  width: @pieceSize;
+  height: @pieceSize;
+  background-size: cover;
+  cursor: pointer;
+
+  &--dragging {
+    display: none;
+  }
+
+  &--wP {
+    background-image: url(../../../pieces/wP.svg);
+  }
+
+  &--wN {
+    background-image: url(../../../pieces/wN.svg);
+  }
+
+  &--wB {
+    background-image: url(../../../pieces/wB.svg);
+  }
+
+  &--wR {
+    background-image: url(../../../pieces/wR.svg);
+  }
+
+  &--wQ {
+    background-image: url(../../../pieces/wQ.svg);
+  }
+
+  &--wK {
+    background-image: url(../../../pieces/wK.svg);
+  }
+
+  &--bP {
+    background-image: url(../../../pieces/bP.svg);
+  }
+
+  &--bN {
+    background-image: url(../../../pieces/bN.svg);
+  }
+
+  &--bB {
+    background-image: url(../../../pieces/bB.svg);
+  }
+
+  &--bR {
+    background-image: url(../../../pieces/bR.svg);
+  }
+
+  &--bQ {
+    background-image: url(../../../pieces/bQ.svg);
+  }
+
+  &--bK {
+    background-image: url(../../../pieces/bK.svg);
+  }
+}

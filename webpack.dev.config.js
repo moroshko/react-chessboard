@@ -14,7 +14,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'examples', 'dist'), // Must be an absolute path
     filename: 'app.js',
-    publicPath: ''
+    publicPath: '/examples/dist/'
   },
   
   module: {
@@ -31,7 +31,7 @@ module.exports = {
       exclude: /node_modules/
     }, {
       test: /\.svg$/,
-      loader: 'file'
+      loader: 'url'
     }]
   },
 

@@ -3,9 +3,9 @@
 require('./Piece.less');
 
 import React, { Component, PropTypes } from 'react';
-import { SQUARE, PIECE, DND_TYPES } from '../constants';
-import { DragSource } from 'react-dnd';
 import classNames from 'classnames';
+import { DragSource } from 'react-dnd';
+import { SQUARE, PIECE, DND_TYPES } from '../../utils/constants/constants';
 
 const pieceSource = {
   canDrag(props) {

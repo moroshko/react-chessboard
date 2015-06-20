@@ -3,9 +3,9 @@
 require('./Square.less');
 
 import React, { Component, PropTypes } from 'react';
-import { DropTarget } from 'react-dnd';
-import { SQUARE, DND_TYPES } from '../constants';
 import classNames from 'classnames';
+import { DropTarget } from 'react-dnd';
+import { SQUARE, DND_TYPES } from '../../utils/constants/constants';
 
 const squareTarget = {
   canDrop(props, monitor) {

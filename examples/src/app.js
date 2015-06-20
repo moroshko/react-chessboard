@@ -3,9 +3,9 @@
 require('./app.less');
 
 import React, { Component } from 'react';
-import Chessboard from '../../src/Chessboard/Chessboard';
-import { BOARD } from '../../src/constants';
 import Chess from 'chess.js';
+import Chessboard from '../../src/components/Chessboard/Chessboard';
+import { BOARD } from '../../src/utils/constants/constants';
 
 class App extends Component { // eslint-disable-line no-shadow
   constructor() {
