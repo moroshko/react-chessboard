@@ -8,7 +8,7 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd/modules/backends/HTML5';
 import { ORIENTATION, SQUARES } from '../../utils/constants/constants';
 import { getPieces } from '../../utils/fen/fen';
-import Square from '../Square/Square';
+import SmartSquare from '../Square/SmartSquare';
 import Piece from '../Piece/Piece';
 
 @DragDropContext(HTML5Backend)
@@ -45,9 +45,10 @@ export default class Chessboard extends Component {
       const square = SQUARES[i];
 
       squares.push(
-        <Square name={square} key={square} canMove={canMove} onMove={onMove}>
+        <SmartSquare name={square} key={square}
+                     canMove={canMove} onMove={onMove}>
           {piece && <Piece dnd={dnd} name={piece} square={square} />}
-        </Square>
+        </SmartSquare>
       );
     }
 

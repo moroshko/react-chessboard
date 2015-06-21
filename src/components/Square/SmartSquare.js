@@ -1,11 +1,9 @@
 'use strict';
 
-require('./Square.less');
-
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
 import { DropTarget } from 'react-dnd';
 import { SQUARES, DND_TYPES } from '../../utils/constants/constants';
+import DumbSquare from './DumbSquare';
 
 const squareTarget = {
   canDrop(props, monitor) {
@@ -31,9 +29,10 @@ function collect(connect, monitor) {
 }
 
 @DropTarget(DND_TYPES.PIECE, squareTarget, collect)
-export default class Square extends Component {
+export default class SmartSquare extends Component {
   static propTypes = {
     name: PropTypes.oneOf(SQUARES).isRequired,
+    canMove: PropTypes.func.isRequired,
     onMove: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired
@@ -45,18 +44,12 @@ export default class Square extends Component {
 
   render() {
     const { name, connectDropTarget, isOver } = this.props;
-    const black = (name.charCodeAt(0) + name.charCodeAt(1)) % 2 === 0;
-    const classes = classNames({
-      'react-chessboard-square': true,
-      'react-chessboard-square--white': !black,
-      'react-chessboard-square--black': black,
-      'react-chessboard-square--over': isOver
-    });
+    const isBlack = (name.charCodeAt(0) + name.charCodeAt(1)) % 2 === 0;
 
     return connectDropTarget(
-      <div className={classes}>
+      <DumbSquare isBlack={isBlack} isOver={isOver}>
         {this.props.children}
-      </div>
+      </DumbSquare>
     );
   }
 }
