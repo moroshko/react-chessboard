@@ -62,5 +62,11 @@ describe('fen', () => {
         movePiece('rnbqkbnr/ppp2ppp/4p3/8/3Pp3/2N5/PPP2PPP/R1BQKBNR', 'e2', 'c4')
       ).to.equal('rnbqkbnr/ppp2ppp/4p3/8/3Pp3/2N5/PPP2PPP/R1BQKBNR');
     });
+
+    it('should not change fen if `from` and `to` are the same', () => {
+      expect(
+        movePiece('rnbqkb1r/pp3ppp/4pn2/2pp4/2PP4/2N2N2/PP2PPPP/R1BQKB1R', 'c4', 'c4')
+      ).to.equal('rnbqkb1r/pp3ppp/4pn2/2pp4/2PP4/2N2N2/PP2PPPP/R1BQKB1R');
+    });
   });
 });
