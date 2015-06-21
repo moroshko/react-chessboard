@@ -5,7 +5,7 @@ require('./Square.less');
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import { DropTarget } from 'react-dnd';
-import { SQUARE, DND_TYPES } from '../../utils/constants/constants';
+import { SQUARES, DND_TYPES } from '../../utils/constants/constants';
 
 const squareTarget = {
   canDrop(props, monitor) {
@@ -33,7 +33,7 @@ function collect(connect, monitor) {
 @DropTarget(DND_TYPES.PIECE, squareTarget, collect)
 export default class Square extends Component {
   static propTypes = {
-    name: PropTypes.oneOf(SQUARE.NAMES).isRequired,
+    name: PropTypes.oneOf(SQUARES).isRequired,
     onMove: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired

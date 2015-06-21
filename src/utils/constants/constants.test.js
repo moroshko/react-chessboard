@@ -1,24 +1,32 @@
 'use strict';
 
 import { expect } from 'chai';
-import { BOARD, SQUARE, PIECE } from './constants';
+import { ORIENTATION, SQUARES, PIECES, FLUX_ACTIONS } from './constants';
 
-describe('constants', () => {
-  describe('BOARD', () => {
-    it('should have 2 orientations', () => {
-      expect(Object.keys(BOARD.ORIENTATION)).to.have.length(2);
+describe('constant', () => {
+  describe('ORIENTATION', () => {
+    it('should have 2 keys', () => {
+      expect(Object.keys(ORIENTATION)).to.have.length(2);
     });
   });
 
-  describe('SQUARE', () => {
-    it('should have 64 squares', () => {
-      expect(Object.keys(SQUARE.NAMES)).to.have.length(64);
+  describe('SQUARES', () => {
+    it('should have 64 items', () => {
+      expect(Object.keys(SQUARES)).to.have.length(64);
     });
   });
 
-  describe('PIECE', () => {
-    it('should have 12 pieces', () => {
-      expect(Object.keys(PIECE.NAMES)).to.have.length(12);
+  describe('PIECES', () => {
+    it('should have 12 items', () => {
+      expect(Object.keys(PIECES)).to.have.length(12);
+    });
+  });
+
+  describe('FLUX_ACTIONS', () => {
+    it('should have values equal to keys', () => {
+      for (let action in FLUX_ACTIONS) {
+        expect(FLUX_ACTIONS[action]).to.equal(action);
+      }
     });
   });
 });

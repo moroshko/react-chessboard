@@ -6,7 +6,7 @@ import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd/modules/backends/HTML5';
-import { BOARD, SQUARE } from '../../utils/constants/constants';
+import { ORIENTATION, SQUARES } from '../../utils/constants/constants';
 import { getPieces } from '../../utils/fen/fen';
 import Square from '../Square/Square';
 import Piece from '../Piece/Piece';
@@ -16,7 +16,7 @@ export default class Chessboard extends Component {
   static propTypes = {
     dnd: PropTypes.bool,
     orientation: PropTypes.oneOf(
-      Object.keys(BOARD.ORIENTATION).map(name => BOARD.ORIENTATION[name])
+      Object.keys(ORIENTATION).map(name => ORIENTATION[name])
     ),
     fen: PropTypes.string,
     canMove: PropTypes.func,
@@ -25,8 +25,8 @@ export default class Chessboard extends Component {
 
   static defaultProps = {
     dnd: true,
-    orientation: BOARD.ORIENTATION.WHITE,
-    fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1',
+    orientation: ORIENTATION.WHITE,
+    fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR',
     canMove: () => true,
     onMove: () => {}
   };
@@ -42,7 +42,7 @@ export default class Chessboard extends Component {
 
     for (let i = 0; i < 64; i++) {
       const piece = pieces[i];
-      const square = SQUARE.NAMES[i];
+      const square = SQUARES[i];
 
       squares.push(
         <Square name={square} key={square} canMove={canMove} onMove={onMove}>
@@ -53,7 +53,7 @@ export default class Chessboard extends Component {
 
     const classes = classNames({
       'react-chessboard': true,
-      'react-chessboard--flipped': orientation === BOARD.ORIENTATION.BLACK
+      'react-chessboard--flipped': orientation === ORIENTATION.BLACK
     });
 
     return (

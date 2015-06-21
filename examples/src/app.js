@@ -5,7 +5,7 @@ require('./app.less');
 import React, { Component } from 'react';
 import Chess from 'chess.js';
 import Chessboard from '../../src/components/Chessboard/Chessboard';
-import { BOARD } from '../../src/utils/constants/constants';
+import { ORIENTATION } from '../../src/utils/constants/constants';
 
 class App extends Component { // eslint-disable-line no-shadow
   constructor() {
@@ -14,7 +14,7 @@ class App extends Component { // eslint-disable-line no-shadow
     this.game = new Chess();
 
     this.state = {
-      orientation: BOARD.ORIENTATION.WHITE,
+      orientation: ORIENTATION.WHITE,
       fen: this.game.fen()
     };
 
@@ -25,9 +25,9 @@ class App extends Component { // eslint-disable-line no-shadow
 
   flipBoard() {
     this.setState({
-      orientation: this.state.orientation === BOARD.ORIENTATION.WHITE
-        ? BOARD.ORIENTATION.BLACK
-        : BOARD.ORIENTATION.WHITE
+      orientation: this.state.orientation === ORIENTATION.WHITE
+        ? ORIENTATION.BLACK
+        : ORIENTATION.WHITE
     });
   }
 

@@ -5,7 +5,7 @@ require('./Piece.less');
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
 import { DragSource } from 'react-dnd';
-import { SQUARE, PIECE, DND_TYPES } from '../../utils/constants/constants';
+import { SQUARES, PIECES, DND_TYPES } from '../../utils/constants/constants';
 
 const pieceSource = {
   canDrag(props) {
@@ -30,8 +30,8 @@ function collect(connect, monitor) {
 export default class Piece extends Component {
   static propTypes = {
     dnd: PropTypes.bool.isRequired,
-    name: PropTypes.oneOf(PIECE.NAMES).isRequired,
-    square: PropTypes.oneOf(SQUARE.NAMES).isRequired,
+    name: PropTypes.oneOf(PIECES).isRequired,
+    square: PropTypes.oneOf(SQUARES).isRequired,
     connectDragSource: PropTypes.func.isRequired,
     isDragging: PropTypes.bool.isRequired
   };
