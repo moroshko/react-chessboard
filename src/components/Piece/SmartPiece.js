@@ -1,11 +1,9 @@
 'use strict';
 
-require('./Piece.less');
-
 import React, { Component, PropTypes } from 'react';
-import classNames from 'classnames';
 import { DragSource } from 'react-dnd';
 import { SQUARES, PIECES, DND_TYPES } from '../../utils/constants/constants';
+import DumbPiece from './DumbPiece';
 
 const pieceSource = {
   canDrag(props) {
@@ -21,18 +19,18 @@ const pieceSource = {
 
 function collect(connect, monitor) {
   return {
-    connectDragSource: connect.dragSource(),
-    isDragging: monitor.isDragging()
+    isDragging: monitor.isDragging(),
+    connectDragSource: connect.dragSource()
   };
 }
 
 @DragSource(DND_TYPES.PIECE, pieceSource, collect)
-export default class Piece extends Component {
+export default class SmartPiece extends Component {
   static propTypes = {
     dnd: PropTypes.bool.isRequired,
-    name: PropTypes.oneOf(PIECES).isRequired,
     square: PropTypes.oneOf(SQUARES).isRequired,
     connectDragSource: PropTypes.func.isRequired,
+    name: PropTypes.oneOf(PIECES).isRequired,
     isDragging: PropTypes.bool.isRequired
   };
 
@@ -41,15 +39,10 @@ export default class Piece extends Component {
   }
 
   render() {
-    const { name, connectDragSource, isDragging } = this.props;
-    const classes = classNames({
-      'react-chessboard-piece': true,
-      [`react-chessboard-piece--${name}`]: true,
-      'react-chessboard-piece--dragging': isDragging
-    });
+    const { connectDragSource, name, isDragging } = this.props;
 
     return connectDragSource(
-      <div className={classes} />
+      <DumbPiece name={name} isDragging={isDragging} />
     );
   }
 }
