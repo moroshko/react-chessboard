@@ -1,41 +1,51 @@
 'use strict';
 
 import React, { Component, PropTypes } from 'react';
+import { createRedux, createDispatcher } from 'redux';
+import { Provider, Connector } from 'redux/react';
 import { DragDropContext } from 'react-dnd';
 import HTML5Backend from 'react-dnd/modules/backends/HTML5';
-import { ORIENTATION } from '../../utils/constants/constants';
+import store from '../../utils/flux/store';
 import DumbChessboard from './DumbChessboard';
+
+function select(state) {
+  return {
+    orientation: state.orientation,
+    fen: state.fen
+  };
+}
 
 @DragDropContext(HTML5Backend)
 export default class SmartChessboard extends Component {
   static propTypes = {
     dnd: PropTypes.bool,
-    orientation: PropTypes.oneOf(
-      Object.keys(ORIENTATION).map(name => ORIENTATION[name])
-    ),
-    fen: PropTypes.string,
-    canMove: PropTypes.func,
-    onMove: PropTypes.func
+    canMove: PropTypes.func
   };
 
   static defaultProps = {
     dnd: true,
-    orientation: ORIENTATION.WHITE,
-    fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR',
-    canMove: () => true,
-    onMove: () => {}
+    canMove: () => true
   };
 
   constructor(props) {
     super(props);
+    this.redux = createRedux(createDispatcher(store));
   }
 
   render() {
-    const { dnd, orientation, fen, canMove, onMove } = this.props;
+    const { dnd, canMove } = this.props;
 
     return (
-      <DumbChessboard dnd={dnd} orientation={orientation} fen={fen}
-                      canMove={canMove} onMove={onMove} />
+      <Provider redux={this.redux}>
+        {() =>
+          <Connector select={select}>
+            {({ orientation, fen, dispatch }) =>
+              <DumbChessboard dnd={dnd} orientation={orientation}
+                              fen={fen} canMove={canMove} dispatch={dispatch} />
+            }
+          </Connector>
+        }
+      </Provider>
     );
   }
 }
