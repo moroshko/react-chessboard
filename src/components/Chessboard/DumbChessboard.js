@@ -4,31 +4,20 @@ require('./Chessboard.less');
 
 import React, { Component, PropTypes } from 'react';
 import classNames from 'classnames';
-import { DragDropContext } from 'react-dnd';
-import HTML5Backend from 'react-dnd/modules/backends/HTML5';
 import { ORIENTATION, SQUARES } from '../../utils/constants/constants';
 import { getPieces } from '../../utils/fen/fen';
 import SmartSquare from '../Square/SmartSquare';
 import SmartPiece from '../Piece/SmartPiece';
 
-@DragDropContext(HTML5Backend)
-export default class Chessboard extends Component {
+export default class DumbChessboard extends Component {
   static propTypes = {
-    dnd: PropTypes.bool,
+    dnd: PropTypes.bool.isRequired,
     orientation: PropTypes.oneOf(
       Object.keys(ORIENTATION).map(name => ORIENTATION[name])
-    ),
-    fen: PropTypes.string,
-    canMove: PropTypes.func,
-    onMove: PropTypes.func
-  };
-
-  static defaultProps = {
-    dnd: true,
-    orientation: ORIENTATION.WHITE,
-    fen: 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR',
-    canMove: () => true,
-    onMove: () => {}
+    ).isRequired,
+    fen: PropTypes.string.isRequired,
+    canMove: PropTypes.func.isRequired,
+    onMove: PropTypes.func.isRequired
   };
 
   constructor(props) {

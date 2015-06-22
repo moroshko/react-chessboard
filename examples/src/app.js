@@ -4,7 +4,7 @@ require('./app.less');
 
 import React, { Component } from 'react';
 import Chess from 'chess.js';
-import Chessboard from '../../src/components/Chessboard/Chessboard';
+import SmartChessboard from '../../src/components/Chessboard/SmartChessboard';
 import { ORIENTATION } from '../../src/utils/constants/constants';
 
 class App extends Component { // eslint-disable-line no-shadow
@@ -55,10 +55,10 @@ class App extends Component { // eslint-disable-line no-shadow
       <div>
         <h1>react-chessboard</h1>
         <div className="chessboard">
-          <Chessboard orientation={this.state.orientation}
-                      fen={this.state.fen}
-                      canMove={this.canMove}
-                      onMove={this.onMove} />
+          <SmartChessboard orientation={this.state.orientation}
+                           fen={this.state.fen}
+                           canMove={this.canMove}
+                           onMove={this.onMove} />
           <button onClick={this.flipBoard}>Flip board</button>
         </div>
       </div>
