@@ -25,7 +25,3 @@ export const DND_TYPES = {
   PIECE: 'piece'
 };
 
-export const FLUX_ACTIONS = {
-  FLIP_BOARD: 'FLIP_BOARD',
-  MOVE_PIECE: 'MOVE_PIECE'
-};

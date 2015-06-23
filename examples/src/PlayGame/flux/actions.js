@@ -1,6 +1,6 @@
 'use strict';
 
-import { FLUX_ACTIONS } from '../constants/constants';
+import { FLUX_ACTIONS } from './constants';
 
 const { FLIP_BOARD, MOVE_PIECE } = FLUX_ACTIONS;
 

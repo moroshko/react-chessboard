@@ -3,14 +3,23 @@ html, body {
   justify-content: center;
   height: 100%;
   margin: 0;
-  font-family: 'Helvetica Neue';
+  font-family: 'Helvetica Neue', Helvetica, Arial;
 }
 
-.react-chessboard {
-  @squareSize: 60px;
-  @boardSize: @squareSize * 8;
-  
-  width: @boardSize;
-  height: @boardSize;
-  outline: 1px solid black;
+#app {
+  display: flex;
+  justify-content: center;
+
+  .header {
+    text-align: center;
+  }
+
+  .react-chessboard {
+    @squareSize: 60px;
+    @boardSize: @squareSize * 8;
+
+    width: @boardSize;
+    height: @boardSize;
+    outline: 1px solid black;
+  }
 }

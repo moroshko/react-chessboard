@@ -3,7 +3,6 @@
 import React, { Component, PropTypes } from 'react';
 import { DropTarget } from 'react-dnd';
 import { SQUARES, DND_TYPES } from '../../utils/constants/constants';
-import { movePiece } from '../../utils/flux/actions';
 import DumbSquare from './DumbSquare';
 
 const squareTarget = {
@@ -18,7 +17,7 @@ const squareTarget = {
     const fromSquare = monitor.getItem().from;
     const toSquare = props.name;
 
-    props.dispatch(movePiece(fromSquare, toSquare));
+    props.onMove(fromSquare, toSquare);
   }
 };
 
@@ -36,7 +35,7 @@ export default class SmartSquare extends Component {
     canMove: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
+    onMove: PropTypes.func.isRequired
   };
 
   constructor(props) {
