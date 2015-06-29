@@ -20,6 +20,8 @@
   width: 90%;
   height: 90%;
   background-size: cover;
+}
+.react-chessboard-piece--can-move {
   cursor: pointer;
 }
 .react-chessboard-piece--dragging {
@@ -75,8 +77,14 @@
   display: flex;
 }
 .play-game .controls {
+  display: flex;
+  flex-direction: column;
   width: 180px;
   margin-left: 20px;
+}
+.play-game .controls button {
+  height: 40px;
+  margin-bottom: 10px;
 }
 .examples {
   display: flex;

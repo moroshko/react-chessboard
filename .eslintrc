@@ -13,9 +13,9 @@
     "jsx": true
   },
   "rules": {
-    "strict": "never",
-    "space-after-keywords": "always",
-    "quotes": "single",
+    "strict": [2, "never"],
+    "space-after-keywords": [2, "always"],
+    "quotes": [2, "single"],
     "new-cap": [2, {
       "capIsNewExceptions": [
         "DragDropContext",
@@ -26,7 +26,7 @@
     }],
 
     "react/jsx-boolean-value": 1,
-    "react/jsx-quotes": [1, "double"],
+    "react/jsx-quotes": [2, "double"],
     "react/jsx-no-undef": 1,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,

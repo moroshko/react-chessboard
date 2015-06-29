@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { ORIENTATION, SQUARES, PIECES } from './constants';
+import { COLOR, ORIENTATION, SQUARES, PIECES } from './constants';
 
 describe('constant', () => {
   describe('COLOR', () => {
