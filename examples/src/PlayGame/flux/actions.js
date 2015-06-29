@@ -1,6 +1,12 @@
 import { FLUX_ACTIONS } from './constants';
 
-const { FLIP_BOARD, MOVE_PIECE } = FLUX_ACTIONS;
+const { NEW_GAME, FLIP_BOARD, MOVE_PIECE } = FLUX_ACTIONS;
+
+export function newGame() {
+  return {
+    type: NEW_GAME
+  };
+}
 
 export function flipBoard() {
   return {

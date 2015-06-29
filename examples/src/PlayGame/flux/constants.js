@@ -1,4 +1,5 @@
 export const FLUX_ACTIONS = {
+  NEW_GAME: 'NEW_GAME',
   FLIP_BOARD: 'FLIP_BOARD',
   MOVE_PIECE: 'MOVE_PIECE'
 };

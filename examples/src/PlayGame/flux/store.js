@@ -3,9 +3,9 @@ import { FLUX_ACTIONS } from './constants';
 import { ORIENTATION } from '../../../../src/utils/constants/constants';
 import { movePiece } from '../../../../src/utils/fen/fen';
 
-const { FLIP_BOARD, MOVE_PIECE } = FLUX_ACTIONS;
+const { NEW_GAME, FLIP_BOARD, MOVE_PIECE } = FLUX_ACTIONS;
 
-const game = new Chess();
+let game = new Chess();
 
 function canMove(fromSquare, toSquare) {
   const legalMoves = game.moves({ verbose: true });
@@ -23,6 +23,14 @@ const initialState = {
 
 export default function(state = initialState, action) {
   switch (action.type) {
+    case NEW_GAME:
+      game = new Chess();
+
+      return {
+        ...state,
+        fen: game.fen()
+      };
+
     case FLIP_BOARD:
       return {
         ...state,
