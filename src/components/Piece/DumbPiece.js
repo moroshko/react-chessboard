@@ -7,6 +7,7 @@ import { PIECES } from '../../utils/constants/constants';
 export default class DumbPiece extends Component {
   static propTypes = {
     name: PropTypes.oneOf(PIECES).isRequired,
+    canMove: PropTypes.bool.isRequired,
     isDragging: PropTypes.bool.isRequired
   };
 
@@ -15,10 +16,11 @@ export default class DumbPiece extends Component {
   }
 
   render() {
-    const { name, isDragging } = this.props;
+    const { name, canMove, isDragging } = this.props;
     const classes = classNames({
       'react-chessboard-piece': true,
       [`react-chessboard-piece--${name}`]: true,
+      'react-chessboard-piece--can-move': canMove,
       'react-chessboard-piece--dragging': isDragging
     });
 

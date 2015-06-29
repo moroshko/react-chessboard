@@ -8,7 +8,10 @@
   width: @pieceSize;
   height: @pieceSize;
   background-size: cover;
-  cursor: pointer;
+
+  &--can-move {
+    cursor: pointer;
+  }
 
   &--dragging {
     display: none;

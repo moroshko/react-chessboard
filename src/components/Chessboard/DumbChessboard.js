@@ -34,7 +34,8 @@ export default class DumbChessboard extends Component {
       squares.push(
         <SmartSquare name={square} key={square}
                      canMove={canMove} onMove={onMove}>
-          {piece && <SmartPiece dnd={dnd} square={square} name={piece} />}
+          {piece && <SmartPiece dnd={dnd} canMove={canMove(square)}
+                                square={square} name={piece} />}
         </SmartSquare>
       );
     }

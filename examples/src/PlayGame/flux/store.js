@@ -1,21 +1,34 @@
 import Chess from 'chess.js';
 import { FLUX_ACTIONS } from './constants';
-import { ORIENTATION } from '../../../../src/utils/constants/constants';
-import { movePiece } from '../../../../src/utils/fen/fen';
+import { COLOR, ORIENTATION } from '../../../../src/utils/constants/constants';
 
 const { NEW_GAME, FLIP_BOARD, MOVE_PIECE } = FLUX_ACTIONS;
 
+// `game` is not part of the state because game.move() mutates `game`
 let game = new Chess();
 
 function canMove(fromSquare, toSquare) {
   const legalMoves = game.moves({ verbose: true });
 
+  if (typeof toSquare === 'undefined') {
+    return legalMoves
+      .filter(legalMove => legalMove.from === fromSquare).length > 0;
+  }
+
   return legalMoves
     .filter(legalMove => legalMove.from === fromSquare &&
-                         legalMove.to === toSquare).length === 1;
+                         legalMove.to === toSquare).length > 0;
+}
+
+function makeRandomMove() {
+  const legalMoves = game.moves();
+  const randomMove = legalMoves[Math.floor(Math.random() * legalMoves.length)];
+
+  game.move(randomMove);
 }
 
 const initialState = {
+  color: COLOR.WHITE,
   orientation: ORIENTATION.WHITE,
   fen: game.fen(),
   canMove: canMove
@@ -44,9 +57,11 @@ export default function(state = initialState, action) {
         to: action.toSquare
       });
 
+      makeRandomMove();
+
       return {
         ...state,
-        fen: movePiece(state.fen, action.fromSquare, action.toSquare)
+        fen: game.fen()
       };
 
     default:

@@ -2,6 +2,12 @@ import { expect } from 'chai';
 import { ORIENTATION, SQUARES, PIECES } from './constants';
 
 describe('constant', () => {
+  describe('COLOR', () => {
+    it('should have 2 keys', () => {
+      expect(Object.keys(COLOR)).to.have.length(2);
+    });
+  });
+
   describe('ORIENTATION', () => {
     it('should have 2 keys', () => {
       expect(Object.keys(ORIENTATION)).to.have.length(2);

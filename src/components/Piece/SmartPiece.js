@@ -5,7 +5,7 @@ import DumbPiece from './DumbPiece';
 
 const pieceSource = {
   canDrag(props) {
-    return props.dnd;
+    return props.dnd && props.canMove;
   },
 
   beginDrag(props) {
@@ -26,6 +26,7 @@ function collect(connect, monitor) {
 export default class SmartPiece extends Component {
   static propTypes = {
     dnd: PropTypes.bool.isRequired,
+    canMove: PropTypes.bool.isRequired,
     square: PropTypes.oneOf(SQUARES).isRequired,
     connectDragSource: PropTypes.func.isRequired,
     name: PropTypes.oneOf(PIECES).isRequired,
@@ -37,10 +38,10 @@ export default class SmartPiece extends Component {
   }
 
   render() {
-    const { connectDragSource, name, isDragging } = this.props;
+    const { connectDragSource, name, canMove, isDragging } = this.props;
 
     return connectDragSource(
-      <DumbPiece name={name} isDragging={isDragging} />
+      <DumbPiece name={name} canMove={canMove} isDragging={isDragging} />
     );
   }
 }

@@ -1,3 +1,8 @@
+export const COLOR = {
+  WHITE: 'white',
+  BLACK: 'black'
+};
+
 export const ORIENTATION = {
   WHITE: 'white',
   BLACK: 'black'
