@@ -3,7 +3,7 @@ require('./app.less');
 import React, { Component } from 'react';
 import Examples from './Examples';
 
-class App extends Component { // eslint-disable-line no-shadow
+class App extends Component {
   render() {
     return (
       <div>

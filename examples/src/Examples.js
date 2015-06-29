@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import PlayGame from './PlayGame/SmartPlayGame';
 import Puzzle from './Puzzle/SmartPuzzle';
 
-export default class Examples extends Component { // eslint-disable-line no-shadow
+export default class Examples extends Component {
   constructor() {
     super();
 

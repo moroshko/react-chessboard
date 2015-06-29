@@ -4,7 +4,7 @@ import React, { Component, PropTypes } from 'react';
 import { ORIENTATION } from '../../../src/utils/constants/constants';
 import Chessboard from '../../../src/components/Chessboard/Chessboard';
 
-export default class DumbPlayGame extends Component { // eslint-disable-line no-shadow
+export default class DumbPlayGame extends Component {
   static propTypes = {
     dnd: PropTypes.bool.isRequired,
     orientation: PropTypes.oneOf(

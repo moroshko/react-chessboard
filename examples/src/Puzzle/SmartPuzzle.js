@@ -2,7 +2,7 @@ require('./Puzzle.less');
 
 import React, { Component } from 'react';
 
-export default class SmartPuzzle extends Component { // eslint-disable-line no-shadow
+export default class SmartPuzzle extends Component {
   constructor() {
     super();
   }
