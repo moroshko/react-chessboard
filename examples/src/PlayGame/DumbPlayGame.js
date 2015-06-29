@@ -1,5 +1,3 @@
-'use strict';
-
 require('./PlayGame.less');
 
 import React, { Component, PropTypes } from 'react';

@@ -1,5 +1,3 @@
-'use strict';
-
 require('./Piece.less');
 
 import React, { Component, PropTypes } from 'react';

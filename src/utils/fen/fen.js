@@ -1,5 +1,3 @@
-'use strict';
-
 const piecesMap = {
   'p': 'bP',
   'b': 'bB',

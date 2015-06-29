@@ -1,5 +1,3 @@
-'use strict';
-
 require('./Puzzle.less');
 
 import React, { Component } from 'react';

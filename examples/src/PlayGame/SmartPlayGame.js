@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component } from 'react';
 import { createRedux, createDispatcher, bindActionCreators } from 'redux';
 import { Provider, Connector } from 'redux/react';

@@ -1,5 +1,3 @@
-'use strict';
-
 require('./Square.less');
 
 import React, { Component, PropTypes } from 'react';

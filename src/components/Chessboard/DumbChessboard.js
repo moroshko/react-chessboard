@@ -1,5 +1,3 @@
-'use strict';
-
 require('./Chessboard.less');
 
 import React, { Component, PropTypes } from 'react';

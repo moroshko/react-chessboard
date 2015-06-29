@@ -1,5 +1,3 @@
-'use strict';
-
 import React, { Component, PropTypes } from 'react';
 import { DragSource } from 'react-dnd';
 import { SQUARES, PIECES, DND_TYPES } from '../../utils/constants/constants';

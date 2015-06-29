@@ -13,6 +13,7 @@
     "jsx": true
   },
   "rules": {
+    "strict": "never",
     "space-after-keywords": "always",
     "quotes": "single",
     "new-cap": [2, {

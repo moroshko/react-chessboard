@@ -1,5 +1,3 @@
-'use strict';
-
 import Chess from 'chess.js';
 import { FLUX_ACTIONS } from './constants';
 import { ORIENTATION } from '../../../../src/utils/constants/constants';

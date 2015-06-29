@@ -1,5 +1,3 @@
-'use strict';
-
 export const ORIENTATION = {
   WHITE: 'white',
   BLACK: 'black'
