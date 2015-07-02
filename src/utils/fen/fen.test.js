@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { getPieces, movePiece } from './fen';
+import { getPieces } from './fen';
 
 describe('fen', () => {
   describe('getPieces()', () => {
@@ -33,38 +33,6 @@ describe('fen', () => {
       positions.forEach(position => {
         expect(getPieces(position.fen)).to.deep.equal(position.pieces);
       });
-    });
-  });
-
-  describe('movePiece()', () => {
-    it('should move piece to empty square', () => {
-      expect(
-        movePiece('rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR', 'e2', 'e4')
-      ).to.equal('rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR');
-    });
-
-    it('should move piece to square with opponent\'s piece', () => {
-      expect(
-        movePiece('r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R', 'f3', 'e5')
-      ).to.equal('r1bqkbnr/pppp1ppp/2n5/4N3/4P3/8/PPPP1PPP/RNBQKB1R');
-    });
-
-    it('should move piece to square with my piece', () => {
-      expect(
-        movePiece('r1bqkbnr/pppp1ppp/2n5/4N3/4P3/8/PPPP1PPP/RNBQKB1R', 'd1', 'a1')
-      ).to.equal('r1bqkbnr/pppp1ppp/2n5/4N3/4P3/8/PPPP1PPP/QNB1KB1R');
-    });
-
-    it('should not change fen if `from` square is empty', () => {
-      expect(
-        movePiece('rnbqkbnr/ppp2ppp/4p3/8/3Pp3/2N5/PPP2PPP/R1BQKBNR', 'e2', 'c4')
-      ).to.equal('rnbqkbnr/ppp2ppp/4p3/8/3Pp3/2N5/PPP2PPP/R1BQKBNR');
-    });
-
-    it('should not change fen if `from` and `to` are the same', () => {
-      expect(
-        movePiece('rnbqkb1r/pp3ppp/4pn2/2pp4/2PP4/2N2N2/PP2PPPP/R1BQKB1R', 'c4', 'c4')
-      ).to.equal('rnbqkb1r/pp3ppp/4pn2/2pp4/2PP4/2N2N2/PP2PPPP/R1BQKB1R');
     });
   });
 });
