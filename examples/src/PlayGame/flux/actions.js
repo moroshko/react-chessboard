@@ -1,6 +1,6 @@
 import { FLUX_ACTIONS } from './constants';
 
-const { NEW_GAME, FLIP_BOARD, MOVE_PIECE } = FLUX_ACTIONS;
+const { NEW_GAME, FLIP_BOARD, MOVE_PIECE, PROMOTE_PAWN } = FLUX_ACTIONS;
 
 export function newGame() {
   return {
@@ -19,5 +19,14 @@ export function movePiece(fromSquare, toSquare) {
     type: MOVE_PIECE,
     fromSquare,
     toSquare
+  };
+}
+
+export function promotePawn(fromSquare, toSquare, color) {
+  return {
+    type: PROMOTE_PAWN,
+    fromSquare,
+    toSquare,
+    color
   };
 }

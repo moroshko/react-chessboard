@@ -13,13 +13,15 @@ export default class SmartChessboard extends Component {
     ).isRequired,
     fen: PropTypes.string.isRequired,
     canMove: PropTypes.func,
-    onMove: PropTypes.func
+    onMove: PropTypes.func,
+    onPromotion: PropTypes.func
   };
 
   static defaultProps = {
     dnd: true,
     canMove: () => true,
-    onMove: () => {}
+    onMove: () => {},
+    onPromotion: () => {}
   };
 
   constructor(props) {
@@ -27,11 +29,12 @@ export default class SmartChessboard extends Component {
   }
 
   render() {
-    const { dnd, orientation, fen, canMove, onMove } = this.props;
+    const { dnd, orientation, fen, canMove, onMove, onPromotion } = this.props;
 
     return (
       <DumbChessboard dnd={dnd} orientation={orientation}
-                      fen={fen} canMove={canMove} onMove={onMove} />
+                      fen={fen} canMove={canMove} onMove={onMove}
+                      onPromotion={onPromotion} />
     );
   }
 }

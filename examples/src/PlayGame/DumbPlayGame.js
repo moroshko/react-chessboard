@@ -13,6 +13,7 @@ export default class DumbPlayGame extends Component {
     fen: PropTypes.string.isRequired,
     canMove: PropTypes.func.isRequired,
     movePiece: PropTypes.func.isRequired,
+    promotePawn: PropTypes.func.isRequired,
     newGame: PropTypes.func.isRequired,
     flipBoard: PropTypes.func.isRequired
   };
@@ -23,7 +24,7 @@ export default class DumbPlayGame extends Component {
 
   render() {
     const { dnd, orientation, fen, canMove,
-            movePiece, newGame, flipBoard } = this.props;
+            movePiece, promotePawn, newGame, flipBoard } = this.props;
 
     return (
       <div className="play-game">
@@ -32,7 +33,8 @@ export default class DumbPlayGame extends Component {
                       orientation={orientation}
                       fen={fen}
                       canMove={canMove}
-                      onMove={movePiece} />
+                      onMove={movePiece}
+                      onPromotion={promotePawn} />
         </div>
         <div className="controls">
           <button onClick={newGame}>New game</button>

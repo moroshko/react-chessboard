@@ -15,7 +15,8 @@ export default class DumbChessboard extends Component {
     ).isRequired,
     fen: PropTypes.string.isRequired,
     canMove: PropTypes.func.isRequired,
-    onMove: PropTypes.func.isRequired
+    onMove: PropTypes.func.isRequired,
+    onPromotion: PropTypes.func.isRequired
   };
 
   constructor(props) {
@@ -23,7 +24,7 @@ export default class DumbChessboard extends Component {
   }
 
   render() {
-    const { dnd, orientation, fen, canMove, onMove } = this.props;
+    const { dnd, orientation, fen, canMove, onMove, onPromotion } = this.props;
     const pieces = getPieces(fen);
     let squares = [];
 
@@ -32,8 +33,8 @@ export default class DumbChessboard extends Component {
       const square = SQUARES[i];
 
       squares.push(
-        <SmartSquare name={square} key={square}
-                     canMove={canMove} onMove={onMove}>
+        <SmartSquare name={square} key={square} canMove={canMove}
+                     onMove={onMove} onPromotion={onPromotion}>
           {piece && <SmartPiece dnd={dnd} canMove={canMove(square)}
                                 square={square} name={piece} />}
         </SmartSquare>

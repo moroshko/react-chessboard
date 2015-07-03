@@ -10,7 +10,8 @@ const pieceSource = {
 
   beginDrag(props) {
     return {
-      from: props.square
+      from: props.square,
+      piece: props.name
     };
   }
 };

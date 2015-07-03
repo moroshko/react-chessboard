@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { DropTarget } from 'react-dnd';
-import { SQUARES, DND_TYPES } from '../../utils/constants/constants';
+import { COLOR, SQUARES, DND_TYPES } from '../../utils/constants/constants';
 import DumbSquare from './DumbSquare';
 
 const squareTarget = {
@@ -12,10 +12,17 @@ const squareTarget = {
   },
 
   drop(props, monitor) {
-    const fromSquare = monitor.getItem().from;
+    const draggedItem = monitor.getItem();
+    const fromSquare = draggedItem.from;
     const toSquare = props.name;
 
-    props.onMove(fromSquare, toSquare);
+    if (draggedItem.piece === 'wP' && toSquare.charCodeAt(1) === 56) {
+      props.onPromotion(fromSquare, toSquare, COLOR.WHITE);
+    } else if (draggedItem.piece === 'bP' && toSquare.charCodeAt(1) === 49) {
+      props.onPromotion(fromSquare, toSquare, COLOR.BLACK);
+    } else {
+      props.onMove(fromSquare, toSquare);
+    }
   }
 };
 
@@ -33,7 +40,8 @@ export default class SmartSquare extends Component {
     canMove: PropTypes.func.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
     isOver: PropTypes.bool.isRequired,
-    onMove: PropTypes.func.isRequired
+    onMove: PropTypes.func.isRequired,
+    onPromotion: PropTypes.func.isRequired
   };
 
   constructor(props) {
